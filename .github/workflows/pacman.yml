@@ -1,11 +1,9 @@
-name: Generate pacman animation
+name: Generate Pacman Animation
 
 on:
-  schedule: # execute every 12 hours
-    - cron: "* */12 * * *"
-
+  schedule:
+    - cron: "0 */12 * * *"
   workflow_dispatch:
-
   push:
     branches:
       - main
@@ -27,6 +25,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
-          build_dir: dist
+          build_dir: . 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
